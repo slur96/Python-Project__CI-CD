@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.runner}}
     strategy:
       matrix:
-        runner: [ubuntu-22.04, depot-ubuntu-22.04]
+        runner: [ubuntu-22.04]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
