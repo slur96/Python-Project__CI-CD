@@ -4,3 +4,9 @@ provider "kubernetes" {
   client_key             = minikube_cluster.cluster.client_key
   cluster_ca_certificate = minikube_cluster.cluster.cluster_ca_certificate
 }
+
+provider "heml" {
+  kubernetes {
+    config_path = "~/.kube/config_path"
+  }
+}

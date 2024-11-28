@@ -1,0 +1,17 @@
+
+replicaCount: 2
+image:
+  repository: samuel78996/my-app
+  pullPolicy: IfNotPresent
+  tag: "latest"
+service:
+  type: ClusterIP
+  port: 8080
+serviceAccount:
+  enabled: false
+ingress:
+  enabled: false
+autoscaling:
+  enabled: false
+
+

@@ -29,3 +29,13 @@ jobs:
       - name: Push to Dockerhub
         run: |
           docker push samuel78996/my-app:${{ env.SHORT_SHA }}
+      - name: Configure git
+        run: |
+         git config --local user.email "example.com"
+         git config --local user.name "example123"
+      - name: Update Helm Chart with new image tag
+        run: |
+          sed -i "$/tag:.*/tag: ${{ env.SHORT_SHA }}/" .my-app\values.yaml
+          git add ./my-app\values.yaml
+          git commit -m "Updated image tag to ${{ env.SHORT_SHA }}"
+          git push
