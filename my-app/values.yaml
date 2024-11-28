@@ -1,5 +1,4 @@
 
-replicaCount: 2
 image:
   repository: samuel78996/my-app
   pullPolicy: IfNotPresent
