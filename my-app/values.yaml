@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: samuel78996/my-app
   pullPolicy: IfNotPresent
-  tag: 312ecff
+  tag: 177ca44
 service:
   type: ClusterIP
   port: 8080
