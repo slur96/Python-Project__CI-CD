@@ -1,8 +1,8 @@
-
+replicaCount: 2
 image:
   repository: samuel78996/my-app
   pullPolicy: IfNotPresent
-  tag: 999cdb3
+  tag: latest
 service:
   type: ClusterIP
   port: 8080
