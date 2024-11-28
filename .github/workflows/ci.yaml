@@ -1,0 +1,30 @@
+---
+
+name: Simple Python Project
+
+on: 
+  push:
+    branches:
+     - main
+
+jobs:
+  build_and_push:
+    runs-on: ${{ matrix.runner}}
+    strategy:
+      matrix:
+        runner: [ubuntu-22.04, depot-ubuntu-22.04]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set Short SHA
+        run: |
+          echo "SHORT_SHA = $(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
+      - name: Build Docker Image
+        run: |
+         docker build -t samuel78996/my-app:${{ env.SHORT_SHA }} .
+      - name: Login to Dockerhub
+        run: |
+         echo "${{ secret.DOCKERHUB_TOKEN }}" | docker login -u "${{ secret.DOCKERHUB_USERNAME }}" --password-stdin
+      - name: Push Docker Image
+        run: |
+         docker push samuel78996/my-app:${{ env.SHORT_SHA }}
