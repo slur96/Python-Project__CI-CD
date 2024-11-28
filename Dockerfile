@@ -8,4 +8,4 @@ RUN pip install flask
 
 EXPOSE 8080
 
-CMD [ "pypthon", "app.py" ]
+CMD [ "python", "app.py" ]
