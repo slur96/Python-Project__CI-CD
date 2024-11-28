@@ -5,7 +5,7 @@ name: Simple Python Project
 on: 
   push:
     branches:
-     - main
+     - main 
 
 jobs:
   build_and_push:
