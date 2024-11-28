@@ -6,7 +6,7 @@ on:
   push:
     branches:
      - main 
-     
+
 jobs:
   build_and_push:
     runs-on: ${{ matrix.runner}}
@@ -26,6 +26,6 @@ jobs:
       - name: Login to Dockerhub
         run: |
          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-      - name: Push Docker Image
+      - name: Push to Dockerhub
         run: |
-         docker push samuel78996/my-app:${{ env.SHORT_SHA }}
+          docker push samuel78996/my-app:${{ env.SHORT_SHA }}
