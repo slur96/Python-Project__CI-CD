@@ -2,7 +2,7 @@
 image:
   repository: samuel78996/my-app
   pullPolicy: IfNotPresent
-  tag: 999cdb3
+  tag: 1252306
 service:
   type: ClusterIP
   port: 8080
